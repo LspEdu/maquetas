@@ -1,0 +1,46 @@
+{% extends 'perm.base.html.twig' %}
+
+{% block body %}
+	<table class="table table-bordered border-success h-100">
+		<thead class="text-center">
+			<tr>
+				<th rowspan="2">Apellido y Nombre</th>
+				<th colspan="2">
+					Inicio
+				</th>
+                <th colspan="2">
+                    FIN
+                </th>
+                <th rowspan="2">
+                    MOTIVO
+                </th>
+                <th rowspan="2">
+                    AUTORIZA
+                </th>
+			</tr>
+            <tr>
+                <th>
+                    HORA
+                </th>
+                <th>
+                    FECHA
+                </th>
+                                <th>
+                    HORA
+                </th>
+                <th>
+                    FECHA
+                </th>
+            </tr>
+		</thead>
+        <tbody>
+            {% for row in range(1,16) %}
+                <tr>
+                {% for cell in range(1,7) %}
+                    <td></td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+	</table>
+{% endblock %}

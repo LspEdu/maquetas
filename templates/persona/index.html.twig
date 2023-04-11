@@ -1,0 +1,100 @@
+{% extends 'cocina.base.html.twig' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+	<style>
+		ul li , #list{
+			margin: 1em;
+		}
+		
+	</style>
+	{# Inicio Datos Genéricos #}
+	<div class="row ms-5 me-5 ">
+		<div class="col-5  -3 align-items-bottom  bottom-0 d-flex flex-column-reverse">
+			<p class=" ms-5 text-uppercase fs-4">fecha:
+				<span class="text-decoration-underline text-danger">insertar FECHA</span>
+			</p>
+		</div>
+		<div class="col-3"></div>
+		<div class="col-4 ">
+			<div class="row row-cols-2 gap-2">
+				<div class=" col-8">
+					<p class="fw-bolder fs-4">ALMUERZO</p>
+				</div>
+				<div class="col-2 m-1" style="border:2px solid black;"></div>
+				<div class=" col-8">
+					<p class="fw-bolder fs-4">CENA</p>
+				</div>
+				<div class="col-2 m-1" style="border:3px solid black;"></div>
+			</div>
+		</div>
+	</div>
+	{# Fin datos genérico #}
+
+	{# COMENSALES #}
+	<div class="row ms-5 me-5 mt-4">
+		<div class="col-6 ms-5">
+			<p class="text-uppercase fs-4">numero de comensales</p>
+		</div>
+		<div class="col-2"></div>
+		<div class="col-2 text-center" style=" border: 10px groove grey;">
+			<span class="text-danger fs-1">56</span>
+		</div>
+	</div>
+	{# FIN COMENSALES #}
+
+	{# INICIO LISTA DATOS#}
+	<div class="row fs-4 mt-3 ">
+		<div class="col-2"></div>
+		<div class="col-4">
+			<ul class="text-uppercase">
+				<li>DIETAS HIPOCALORICAS</li>
+				<li>dietas sin cerdo</li>
+				<li>celiacos</li>
+				<li>diabeticos</li>
+				<li>intolerantes lactosa</li>
+				<li>Intolerantes cefalopodos</li>
+				<li>Intolerantes huevo</li>
+				<li>Almuerzo a las 14:00 H.</li>
+				<li>Microondas</li>
+				<li>Picnis</li>
+				<li>Otras</li>
+			</ul>
+		</div>
+		<div id="list" class="col-4 d-flex flex-column">
+			<p>DATO</p>
+			<p>DATO</p>
+			<p>DATO</p>
+			<p>DATO</p>
+			<p>DATO</p>
+			<p>DATO</p>
+			<p>DATO</p>
+			<p>DATO</p>
+			<p>DATO</p>
+			<p>DATO</p>
+			<p>DATO</p>
+			<p>DATO</p>
+			<p>DATO</p>
+			
+		</div>
+	</div>
+    {#FIN LISTA DATOS #}
+
+    <br>
+    {#EDUCADOR/A#}
+    <div class="row">
+    <div class="col-1"></div>
+        <div class="col-6 fs-4 text-uppercase">
+            <p>educador/a de guardia </p>
+        </div>
+        <div class="col-5 fs-4">
+            <p>INSERTAR DATO</p>
+        </div>
+    </div>
+	<br>
+    
+
+
+{% endblock %}
