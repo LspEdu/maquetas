@@ -11,8 +11,17 @@ use Knp\Snappy\Pdf;
 
 class PersonaController extends AbstractController
 {
-    #[Route('/', name: 'cocina_pdf')]
-    public function index(Pdf $pdf)
+    #[Route('/', name: 'index')]
+    public function index()
+    {
+        return $this->render('index.html.twig',[
+            
+        ]);
+    }
+
+
+    #[Route('/cocina', name: 'cocina_pdf')]
+    public function cocina(Pdf $pdf)
     {
         $html = $this->renderView('persona/index.html.twig');
         return new PdfResponse(
