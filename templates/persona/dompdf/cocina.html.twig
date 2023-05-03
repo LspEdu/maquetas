@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			Parte Cocina
+		</title>
+		<link
+		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+
+		<style>
+			html,
+			body {
+                font-family: 'Roboto', sans-serif;
+				height: 100%;
+			}
+			hr {
+				color: #52600e;
+				height: 10px;
+			}
+            footer {
+                position: absolute;
+                width: 100%;
+				position: absolute;
+				bottom: -5px;
+            }
+			@page {
+				size: A4 portrait;
+			}
+			ul li,
+			#list {
+				margin: 1em;
+			}
+
+            span {
+                color: red;
+            }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+            {{ include('/persona/dompdf/_header.html.twig', {'title': 'PARTE DIARIO A COCINA'}) }}
+
+
+			{# Inicio Datos Genéricos #}
+            <table width="100%" height="60px" style="margin-top: 10px">
+                <tr>
+                    <td rowspan=2 valign="bottom" width="75%" >
+                        FECHA: <span>INSERTAR FECHA</span>
+                    </td>
+                    <td width="20%">
+                        ALMUERZO
+                    </td>
+                    <td style="border: 3px groove black; text-align: center">
+                        <span>X</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%">
+                        CENA
+                    </td>
+                    <td style="border: 3px groove black; text-align: center">
+                        <span>X</span>
+                    </td>
+                </tr>
+            </table>
+			{# Fin datos genérico #}
+			{# COMENSALES #}
+            <table width="100%"  style="margin-top: 10px" >
+                <tr style>
+                    <td width="75%" height="50px">
+                        NUMERO DE COMENSALES
+                    </td>
+                    <td width="25%" style="border: 10px groove black; text-align: center">
+                        <h4><span>9999</span></h4>
+                    </td>
+                </tr>
+            </table>
+			{# FIN COMENSALES #}
+
+			{# INICIO LISTA DATOS#}
+            <table width="100%" style="margin-top:2em" style="height: 30%; line-height: 0.1em">
+                <tr>
+                    <td width="65%">
+					    <ul>
+						    <li>DIETAS HIPOCALORICAS</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <span>DATO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+						    <li>DIETAS SIN CERDO</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <span>DATO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+						    <li>CELÍACOS</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <span>DATO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+						    <li>DIABÉTICOS</li>
+                        </ul>
+					</td>
+                    <td>
+                        <span>DATO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>INTOLERANTES LACTOSA</li>
+                        </ul>
+					</td>
+                    <td>
+                        <span>DATO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>INTOLERANTES CEFALÓPODOS</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <span>DATO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>INTOLERANTES HUEVO</li>
+                        </ul>
+					</td>
+                    <td>
+                        <span>DATO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>ALMUERZO A LAS 14:00 H.</li>
+                        </ul>
+					</td>
+                    <td>
+                        <span>DATO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>MICROONDAS</li>
+                        </ul>
+					</td>
+                    <td>
+                        <span>DATO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>PICNIS</li>
+                        </ul>
+					</td>
+                    <td>
+                        <span>DATO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>OTRAS</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <span>DATO</span>
+                    </td>
+                </tr>
+            </table>
+			{#FIN LISTA DATOS #}
+
+
+			{#EDUCADOR/A#}
+            <table width="100%" style="margin-top: 2em">
+                <tr>
+                    <td width="75%">
+                        EDUCADOR/A DE GUARDIA
+                    </td>
+                    <td>
+                        <span> INSERTAR DATO </span>
+                    </td>
+                </tr>
+            </table>
+            {#FIN EDUCADOR/A#}
+            {{ include('persona/dompdf/_footer.html.twig') }}
+		</div>
+	</body>
+</html>

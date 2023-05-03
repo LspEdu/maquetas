@@ -2,11 +2,12 @@
 
 namespace App\Controller;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 use Knp\Snappy\Pdf;
 
 class PersonaController extends AbstractController
@@ -75,7 +76,7 @@ class PersonaController extends AbstractController
         );
     }
 
-    #[Route('/amonestacion', name: 'amonestacion_pdf')]
+    #[Route('/amonestacion_pdf', name: 'amonestacion_pdf')]
     public function amonestacion(Pdf $pdf)
     {
         $html = $this->renderView('/persona/amonestacion.html.twig');
@@ -101,4 +102,41 @@ class PersonaController extends AbstractController
             
         ]); */
     }
+
+    #[Route('/cocina_dompdf', name: 'cocina_dompdf')]
+    public function cocina_dompdf() 
+    {
+        $html = $this->renderView('/persona/dompdf/cocina.html.twig');
+        $options = new Options();
+        $options->set('isRemoteEnabled', true);
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        return new PdfResponse (
+            $dompdf->stream("parte_cocina", ["Attachment" => false]),
+
+        );
+    }
+
+    #[Route('/diario_dompdf', name: 'diario_dompdf')]
+    public function diario_dompdf()
+    {
+        $html = $this->renderView('/persona/dompdf/diario.html.twig');
+        $options = new Options();
+        $options->set('isRemoteEnabled', true);
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        return new PdfResponse (
+            $dompdf->stream("parte_diario", ["Attachment" => false]),
+
+        );
+    }
+
+
+
 }
