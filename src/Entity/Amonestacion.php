@@ -5,152 +5,260 @@ namespace App\Entity;
 use App\Repository\AmonestacionRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: AmonestacionRepository::class)]
+
+/**
+ * @ORM\Entity(repositoryClass="AmonestacionRepository::class")
+ * @ORM\Table(name="amonestacion")
+ */
 class Amonestacion
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    /**
+     * @ORM\Id 
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     *  
+     */
+    private $id = null;
 
-    #[ORM\Column(length: 255)]
+
+    /**
+     * @ORM\Column(length=255)
+     *
+     */
     private ?string $id_Alumno = null;
 
-    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     * 
+     */
     private ?\DateTimeImmutable $fecha = null;
 
-    #[ORM\Column(type: Types::TIME_IMMUTABLE)]
+    /**
+     * @ORM\Column(type=Types::TIME_IMMUTABLE)
+     */
     private ?\DateTimeImmutable $hora = null;
 
-    #[ORM\Column]
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $resi_abandonar_centro = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $resi_falta_clase_permaneciendo_Residencia = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $resi_incumplimiento_plan_convivencia = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $resi_falta_control_presencia = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $resi_negativa_indicacion = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $resi_negativa_sancion = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $resi_fumar = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $resi_habitacion_horario_escolar = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $resi_otros = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $modulo_estancia_modulo_ajeno = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $modulo_ausencia_pasar_lista = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $modulo_desorden = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $modulo_tenencia_electrodomesticos = null;
 
-    #[ORM\Column]
-    private ?bool $modulo_otros = null;
 
-    #[ORM\Column]
-    private ?bool $estudio_alterar_retraso = null;
-
-    #[ORM\Column]
-    private ?bool $estudio_alterar_falta = null;
-
-    #[ORM\Column]
-    private ?bool $estudio_alterar_retrasar_comienzo = null;
-
-    #[ORM\Column]
-    private ?bool $estudio_alterar_interferir_desarrollo = null;
-
-    #[ORM\Column]
-    private ?bool $estudio_alterar_abandonar_aula = null;
-
-    #[ORM\Column]
-    private ?bool $estudio_alterar_otros = null;
-
-    #[ORM\Column]
-    private ?bool $estudio_normas_no_trabaja = null;
-
-    #[ORM\Column]
-    private ?bool $estudio_normas_no_hace_tareas = null;
-
-    #[ORM\Column]
-    private ?bool $estudio_normas_no_trae_material = null;
-
-    #[ORM\Column]
-    private ?bool $estudio_normas_no_cambia_actitud = null;
-
-    #[ORM\Column]
-    private ?bool $compa_amenazar = null;
-
-    #[ORM\Column]
-    private ?bool $compa_falta_respeto = null;
-
-    #[ORM\Column]
-    private ?bool $compa_pegar = null;
-
-    #[ORM\Column]
-    private ?bool $compa_quitar_material = null;
-
-    #[ORM\Column]
-    private ?bool $compa_encubrimiento_falta = null;
-
-    #[ORM\Column]
-    private ?bool $edu_falta_respeto = null;
-
-    #[ORM\Column]
-    private ?bool $edu_contestar = null;
-
-    #[ORM\Column]
-    private ?bool $edu_trato_incorrecto = null;
-
-    #[ORM\Column]
-    private ?bool $edu_mentir = null;
-
-    #[ORM\Column]
-    private ?bool $edu_utilizacion_documentos = null;
-
-    #[ORM\Column]
-    private ?bool $centro_maltrato_material = null;
-
-    #[ORM\Column]
-    private ?bool $centro_lugar_no_permitido = null;
-
-    #[ORM\Column]
-    private ?bool $centro_molestar_pasillo = null;
-
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $observaciones = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $id_educador = null;
-
-    #[ORM\Column]
-    private ?bool $firma_alumno = null;
-
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $sancion = null;
-
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $modulo_indebido_aparato = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $modulo_otros = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $estudio_alterar_retraso = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $estudio_alterar_falta = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $estudio_alterar_retrasar_comienzo = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $estudio_alterar_interferir_desarrollo = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $estudio_alterar_abandonar_aula = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $estudio_alterar_otros = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $estudio_normas_no_trabaja = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $estudio_normas_no_hace_tareas = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $estudio_normas_no_trae_material = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $estudio_normas_no_cambia_actitud = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $compa_amenazar = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $compa_falta_respeto = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $compa_pegar = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $compa_quitar_material = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $compa_encubrimiento_falta = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $edu_falta_respeto = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $edu_contestar = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $edu_trato_incorrecto = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $edu_mentir = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $edu_utilizacion_documentos = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $centro_maltrato_material = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $centro_lugar_no_permitido = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $centro_molestar_pasillo = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
     private ?bool $centro_fumar = null;
+
+
+    /**
+     * @ORM\Column(type=Types::TEXT, nullable=true)
+     *
+     */
+    private ?string $observaciones = null;
+
+
+    /**
+     * @ORM\Column(length=255)
+     */
+    private ?string $id_educador = null;
+
+    /**
+     * @ORM\Column(type=Types::BOOLEAN)
+     */
+    private ?bool $firma_alumno = null;
+
+    /**
+     * ORM\Column(type=Types::TEXT)
+     */
+    private ?string $sancion = null;
 
     public function getId(): ?int
     {
