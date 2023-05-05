@@ -3,11 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			Amonestacion
+			{{title}}
 		</title>
-		<link
-		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -121,13 +118,13 @@
 			</header>
 			<main>
                 {#  INICIO TABLA RESIDENCIA #}
-					<table style="font-size:7px; height:100px;" >
+					<table style="margin-top: 0;" >
                         <caption>EN LA RESIDENCIA</caption>
 						<tr class="rowspan">
 							<td rowspan="9" class="tit" width="50%">
 								Alterar la convivencia y/o el normal desarrollo de la vida en la residencia
 							</td>
-							<td class="chk" style="font-size:10px" >{% if amonestacion.isResiAbandonarCentro %} <b>X</b>{% endif %}</td>
+							<td class="chk" style="" >{% if amonestacion.isResiAbandonarCentro %} <b>X</b>{% endif %}</td>
 							<td class="opcion">Abandonar el centro sin permiso previo</td>
 						</tr>
 						<tr>

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Amonestacion;
 use App\Form\AmonestacionType;
+use App\Repository\AlumnoRepository;
 use App\Repository\AmonestacionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Dompdf\Dompdf;
@@ -18,8 +19,11 @@ class AmonestacionController extends AbstractController
     #[Route('/amonestacion', name: 'app_amonestacion')]
     public function index(AmonestacionRepository $amonRep)
     {
+        $hoy = new \DateTime();
+        $title = "Amonestacion ".$hoy->format('d-m-Y_H:i');
         $data = [
-            'amonestacion' => $amonRep->find(1)
+            'amonestacion' => $amonRep->find(1),
+            'title' => $title,
         ];
         $html = $this->renderView('/amonestacion/index.html.twig', $data);
         $options = new Options();
@@ -30,14 +34,14 @@ class AmonestacionController extends AbstractController
         $dompdf->render();
 
         return new PdfResponse (
-            $dompdf->stream("amonestacion", ["Attachment" => false]),
+            $dompdf->stream("Amonestacion", ["Attachment" => false]),
 
         ); 
 /*         return $this->render('/amonestacion/index.html.twig',$data); */
     }
 
     #[Route('/amonestacion/crear', name: 'amonestacion_crear')]
-    public function crear(EntityManagerInterface $em, Request $request)
+    public function crear(EntityManagerInterface $em, Request $request, AlumnoRepository $alRep)
     {
         $amonestacion = new Amonestacion();
 
@@ -47,9 +51,11 @@ class AmonestacionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $amonestacion = $form->getData();
             $time = new \DateTimeImmutable();
+            $alum = $alRep->find(1);
             $amonestacion
                 ->setFecha($time)
-                ->setHora($time);
+                ->setHora($time)
+                ->setIdAlumno($alum);
             $em->persist($amonestacion);
             $em->flush();
             return $this->redirectToRoute('app_amonestacion');
