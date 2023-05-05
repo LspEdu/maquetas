@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{{title}}
+		</title>
+		<link
+		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+		<style>
+			html {
+				margin: 0;
+				padding: 0;
+			}
+            .container {
+                margin: 1em;
+            }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<table width="100%" style="text-align: center; height: 120px;">
+					<tr>
+						<td valign="top" style="width:25%">
+							<img src="img/canteras.jpg" style="height: 5em;"/>
+						</td>
+						<td valign="top" style="text-align: center">
+							<h2>{{title}}</h2>
+						</td>
+						<td valign="center" style="width: 25%">
+							<img style="height: 5em" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Logotipo_de_la_Junta_de_Andaluc%C3%ADa_2020.svg/1200px-Logotipo_de_la_Junta_de_Andaluc%C3%ADa_2020.svg.png" class="" alt="">
+						</td>
+					</tr>
+				</table>
+			</header>
+		</div>
+	</body>
+</html>

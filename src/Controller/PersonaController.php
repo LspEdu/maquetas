@@ -52,7 +52,7 @@ class PersonaController extends AbstractController
         );
     }
 
-    #[Route('/salida', name: 'salida_pdf')]
+    #[Route('/salida_knp', name: 'salida_pdf')]
     public function salida(Pdf $pdf)
     {
         $html = $this->renderView('/persona/salida.html.twig');
