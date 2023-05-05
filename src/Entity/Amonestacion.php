@@ -157,9 +157,7 @@ class Amonestacion
     #[ORM\Column(type: Types::BOOLEAN)]
     private ?bool $firma_alumno = null;
 
-    /**
-     * ORM\Column(type=Types::TEXT)
-     */
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $sancion = null;
 
     public function getId(): ?int
