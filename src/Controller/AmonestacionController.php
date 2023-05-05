@@ -19,7 +19,7 @@ class AmonestacionController extends AbstractController
     {
         $hoy = new \DateTime();
         $html = $this->renderView('/amonestacion/index.html.twig', [
-            'amonestacion' => $amonRep->find(1),
+            'codigo' => $amonRep->find(1),
             'title' => "Amonestacion " . $hoy->format('d-m-Y_H:i'),
             'path' => $request->getHost().$request->getBasePath(),
         ]);
