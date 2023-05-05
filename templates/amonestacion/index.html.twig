@@ -120,243 +120,143 @@
 				</table>
 			</header>
 			<main>
-				{#  INICIO TABLA RESIDENCIA #}
+			{#  INICIO TABLA RESIDENCIA #}
 				<table style="margin-top: 0;">
 					<caption>EN LA RESIDENCIA</caption>
 					<tr class="rowspan">
 						<td rowspan="9" class="tit" width="50%">
 							Alterar la convivencia y/o el normal desarrollo de la vida en la residencia
 						</td>
-						<td class="chk" style="">
-							{% if codigo.isResiAbandonarCentro %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isResiAbandonarCentro ? 'X' : '' }}</b></td>
 						<td class="opcion">Abandonar el centro sin permiso previo</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isResiFaltaClasePermaneciendoResidencia %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isResiFaltaClasePermaneciendoResidencia ? 'X' : '' }}</b></td>
 						<td class="opcion">Faltas injustificadas a clases permaneciendo en Residencia</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isResiIncumplimientoPlanConvivencia %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isResiIncumplimientoPlanConvivencia ? 'X' : '' }}</b></td>
 						<td class="opcion">Incumplimiento del plan de convivencia</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isResiFaltaControlPresencia %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isResiFaltaControlPresencia ? 'X' : '' }}</b></td>
 						<td class="opcion">Falta no justificada en los controles de presencia</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isResiNegativaIndicacion %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isResiNegativaIndicacion ? 'X' : '' }}</b></td>
 						<td class="opcion">Negativa a cumplir una indicación</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isResiNegativaSancion %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isResiNegativaSancion ? 'X' : '' }}</b></td>
 						<td class="opcion">Negativa a cumplir una sanción</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isResiFumar %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isResiFumar ? 'X' : '' }}</b></td>
 						<td class="opcion">Fumar dentro del centro</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isResiHabitacionHorarioEscolar %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isResiHabitacionHorarioEscolar ? 'X' : '' }}</b></td>
 						<td class="opcion">Permanecer en la habitación en horario escolar</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isResiOtros %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isResiOtros ? 'X' : '' }}</b></td>
 						<td class="opcion">Otros (Explicad en Observaciones)</td>
 					</tr>
 					<tr>
 						<td rowspan="6" class="tex tit fs-5 ">
 							Alterar la convivencia y el normal desarrollo de la vida en el módulo</td>
-						<td class="chk">
-							{% if codigo.isModuloEstanciaModuloAjeno %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isModuloEstanciaModuloAjeno ? 'X' : '' }}</b></td>
 						<td class="opcion">
 							Estancia sin permiso en módulo ajeno
 						</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isModuloAusenciaPasarLista %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isModuloAusenciaPasarLista ? 'X' : '' }}</b></td>
 						<td class="opcion">
 							Ausencia a la hora de pasar lista
 						</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isModuloDesorden %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isModuloDesorden ? 'X' : '' }}</b></td>
 						<td class="opcion">
 							Desorden en módulo
 						</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isModuloTenenciaElectrodomesticos %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isModuloTenenciaElectrodomesticos ? 'X' : '' }}</b></td>
 						<td class="opcion">
 							Tendencia de aparatos electrodomésticos no permitidos
 						</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isModuloIndebidoAparato %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isModuloIndebidoAparato ? 'X' : '' }}</b></td>
 						<td class="opcion">
 							Uso indebido de aparatos (móvil, walkman, cámaras ...)
 						</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isModuloOtros %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isModuloOtros ? 'X' : '' }}</b></td>
 						<td class="opcion">
 							Otros (Indicad en observaciones)
 						</td>
 					</tr>
 				</table>
-				{# FIN TABLA RESIDENCIA #}
+			{# FIN TABLA RESIDENCIA #}
 
-				{# INICIO TABLA ESTUDIO #}
+			{# INICIO TABLA ESTUDIO #}
 				<table>
 					<caption>EN ESTUDIO ASESORADO</caption>
 					<tr class="h-50">
 						<td rowspan="6" class="tex fs-5 ">
 							Alterar el normal desarollo del estudio asesorado y las clases de apoyo y/o comportamiento indebido
 						</td>
-						<td class="chk">
-							{% if codigo.isEstudioAlterarRetraso %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isEstudioAlterarRetraso ? 'X' : '' }}</b></td>
 						<td class="opcion">Retraso al aula</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isEstudioAlterarFalta %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isEstudioAlterarFalta ? 'X' : '' }}</b></td>
 						<td class="opcion">Falta no justificada al aula</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isEstudioAlterarRetrasarComienzo %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isEstudioAlterarRetrasarComienzo ? 'X' : '' }}</b></td>
 						<td class="opcion">Retrasar el comienzo del estudio</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isEstudioAlterarInterferirDesarrollo %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isEstudioAlterarInterferirDesarrollo ? 'X' : '' }}</b></td>
 						<td class="opcion">Interferir en el desarrollo del estudio</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isEstudioAlterarAbandonarAula %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isEstudioAlterarAbandonarAula ? 'X' : '' }}</b></td>
 						<td class="opcion">Abandonar el aula sin permiso</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isEstudioAlterarOtros %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isEstudioAlterarOtros ? 'X' : '' }}</b></td>
 						<td class="opcion">Otros (Explicad en Observaciones)</td>
 					</tr>
 					<tr>
 						<td rowspan="4" class="tex fs-5 ">
 							No seguir las normas de estudio y/o comportamiento establecidas por el/la educador/a
 						</td>
-						<td class="chk">
-							{% if codigo.isEstudioNormasNoTrabaja %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isEstudioNormasNoTrabaja ? 'X' : '' }}</b></td>
 						<td class="opcion">No trabaja</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isEstudioNormasNoHaceTareas %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isEstudioNormasNoHaceTareas ? 'X' : '' }}</b></td>
 						<td class="opcion">No hace sus tareas</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isEstudioNormasNoTraeMaterial %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isEstudioNormasNoTraeMaterial ? 'X' : '' }}</b></td>
 						<td class="opcion">No trae el material</td>
 					</tr>
 					<tr>
-						<td class="chk">
-							{% if codigo.isEstudioNormasNoCambiaActitud %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isEstudioNormasNoCambiaActitud ? 'X' : '' }}</b></td>
 						<td class="opcion">No cambia de actitud tras indicárselo varias veces</td>
 					</tr>
 
 				</table>
-				{# FIN TABLA ESTUDIO #}
+			{# FIN TABLA ESTUDIO #}
 
-				{# INICIO TABLA PERSONAS #}
+			{# INICIO TABLA PERSONAS #}
 				<table>
 					<thead>
 						<tr>
@@ -368,106 +268,50 @@
 					</thead>
 					<tbody style="line-height: 0.5em">
 						<tr>
-							<td class="chk">
-								{% if codigo.isCompaAmenazar %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isCompaAmenazar ? 'X' : '' }}</b></td>
 							<td class="opcion">Amenazar</td>
-							<td class="chk">
-								{% if codigo.isEduFaltaRespeto %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isEduFaltaRespeto ? 'X' : '' }}</b></td>
 							<td class="opcion">Faltar el respeto</td>
-							<td class="chk">
-								{% if codigo.isCentroMaltratoMaterial %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isCentroMaltratoMaterial ? 'X' : '' }}</b></td>
 							<td class="opcion">Maltrato del material y/o instalaciones del Centro</td>
 						</tr>
 						<tr>
-							<td class="chk">
-								{% if codigo.isCompaFaltaRespeto %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isCompaFaltaRespeto ? 'X' : '' }}</b></td>
 							<td class="opcion">Faltar el respeto o insultar</td>
-							<td class="chk">
-								{% if codigo.isEduContestar %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isEduContestar ? 'X' : '' }}</b></td>
 							<td class="opcion">Contestar indebidamente</td>
-							<td class="chk">
-								{% if codigo.isCentroFumar %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isCentroFumar ? 'X' : '' }}</b></td>
 							<td class="opcion">Fumar</td>
 						</tr>
 						<tr>
-							<td class="chk">
-								{% if codigo.isCompaPegar %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isCompaPegar ? 'X' : '' }}</b></td>
 							<td class="opcion">Pegar, empujar, poner zancadillas</td>
-							<td class="chk">
-								{% if codigo.isEduTratoIncorrecto %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isEduTratoIncorrecto ? 'X' : '' }}</b></td>
 							<td class="opcion">Trato incorrecto</td>
-							<td class="chk">
-								{% if codigo.isCentroLugarNoPermitido %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isCentroLugarNoPermitido ? 'X' : '' }}</b></td>
 							<td class="opcion">Encontrarse en un lugar no permitido en recreos o en horas lectivas</td>
 						</tr>
 						<tr>
-							<td class="chk">
-								{% if codigo.isCompaQuitarMaterial %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isCompaQuitarMaterial ? 'X' : '' }}</b></td>
 							<td class="opcion">Quitar, robar ... material</td>
-							<td class="chk">
-								{% if codigo.isEduMentir %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isEduMentir ? 'X' : '' }}</b></td>
 							<td class="opcion">Mentir, engañar...</td>
-							<td class="chk">
-								{% if codigo.isCentroMolestarPasillo %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isCentroMolestarPasillo ? 'X' : '' }}</b></td>
 							<td class="opcion">Molestar en los pasillos cuando es expulsado de clase</td>
 						</tr>
 						<tr>
-							<td class="chk">
-								{% if codigo.isCompaEncubrimientoFalta %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isCompaEncubrimientoFalta ? 'X' : '' }}</b></td>
 							<td class="opcion">Encubrimiento de una falta</td>
-							<td class="chk">
-								{% if codigo.isEduUtilizacionDocumentos %}
-									<b>X</b>
-								{% endif %}
-							</td>
+							<td class="chk"><b>{{codigo.isEduUtilizacionDocumentos ? 'X' : '' }}</b></td>
 							<td class="opcion">Utilización indebida de documentos</td>
 							<td></td>
 							<td></td>
 						</tr>
 					</tbody>
 				</table>
-				{# FIN TABLA PERSONAS #}
+			{# FIN TABLA PERSONAS #}
 
-				{# INICIO ULTIMA TABLA #}
+			{# INICIO ULTIMA TABLA #}
 				<table width="100%" style="padding-top: 3px">
 					<tr style="border-bottom: 0;">
 						<td width="50%" style="border-bottom: 0;">
@@ -489,11 +333,7 @@
 						<td colspan="2" height="60px" valign="top" align="center" style="border-bottom: 0; padding-top: 5px">Firma del alumno/a</td>
 					</tr>
 					<tr style="border-top: 0;">
-						<td class="chk">
-							{% if codigo.isFirmaAlumno %}
-								<b>X</b>
-							{% endif %}
-						</td>
+						<td class="chk"><b>{{codigo.isFirmaAlumno ? 'X' : '' }}</b></td>
 						<td valign="bottom" align="left" style="border-top: 0;">El/La alumno/a se niega a firmar</td>
 					</tr>
 					<tr style="border-bottom:0;">
@@ -508,7 +348,7 @@
 					</tr>
 
 				</table>
-				{# FIN ULTIMA TABLA #}
+			{# FIN ULTIMA TABLA #}
 
 			</main>
 
