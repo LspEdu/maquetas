@@ -25,6 +25,7 @@ class AmonestacionController extends AbstractController
         ]);
         $options = new Options();
         $options->set('isRemoteEnabled', true);
+        $options->setChroot($this->getParameter('kernel.project_dir'));
         $dompdf = new Dompdf($options);
         $dompdf->loadHtml($html);
         $dompdf->setPaper('A4');
