@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{name}}</title>
+		<style>
+			html {
+				margin: 0;
+				padding: 0;
+			}
+			.container {
+				margin: 1em;
+			}
+            .fech {
+                font-size: 0.9em;
+                text-align: center;
+            }
+            main table tbody td {
+                line-height: 2.8em;
+            }
+            .indent {
+                text-indent: 0.2em;
+            }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<table width="100%" style="text-align: center; height: 90px;">
+					<tr>
+						<td valign="top" style="width:25%">
+							<img src="img/canteras.jpg" style="height: 5em;"/>
+						</td>
+						<td valign="top" style="text-align: center">
+							<h1 style="text-transform: uppercase">{{title}}</h1>
+						</td>
+						<td valign="center" style="width: 20%">
+							<img style="height: 4.5em" src="img/logo_andalucia.png" class="" alt="">
+						</td>
+					</tr>
+				</table>
+			</header>
+			<main>
+				<table width="100%" height="100%" border="1" style="border-collapse: collapse; margin-top: 1em;">
+					<thead>
+						<tr>
+							<th rowspan="2" width="25%">
+								ALUMNO/A
+							</th>
+							<th colspan="2" width="25%">
+								INICIO
+							</th>
+							<th colspan="2" width="25%">
+								FIN
+							</th>
+							<th rowspan="2" width="25%">
+								MOTIVO
+							</th>
+							<th rowspan="2" width="25%">
+								AUTORIZACIÓN
+							</th>
+						</tr>
+						<tr style="font-size: 0.75em">
+							<th>
+								HORA
+							</th>
+							<th>
+								FECHA
+							</th>
+							<th>
+								HORA
+							</th>
+							<th>
+								FECHA
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for permiso in permisos %}
+							<tr>
+                                <td class="indent">{{permiso.idAlumno}}</td>
+                                <td class="fech">{{permiso.fechaInicio|date('H:i')}}</td>
+                                <td class="fech">{{permiso.fechaInicio|date('d/m/y')}}</td>
+                                <td class="fech">{{permiso.fechaFin|date('H:i')}}</td>
+                                <td class="fech">{{permiso.fechaFin|date('d/m/y')}}</td>
+                                <td class="indent">{{permiso.motivo}}</td>
+                                <td class="indent">{{permiso.autoriza}}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</main>
+            <footer style="width: 95%; bottom: 0; position: fixed">
+				<table width="100%" height="30px" style="border-top: 1px solid gray; font-size: 0.8em">
+					<tr>
+						<td>
+							<img style="height:4.5em" src="img/medidas_personales_1_1.png" class="" alt="">
+						</td>
+
+						<td align="right">
+							<p>INSERTAR SITIO</p>
+							<p>Fecha de Emisión: INSERTAR DATO</p>
+						</td>
+					</tr>
+				</table>
+			</footer>
+		</div>
+
+	</body>
+</html>

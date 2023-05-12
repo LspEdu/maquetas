@@ -32,46 +32,65 @@
 			{{ include("/persona/dompdf/_header.html.twig", {'title' : 'Descargas de Pdfs'}) }}
 
             <main class="h-100 d-flex justify-content-center">
-                <div class="col-6 d-flex flex-column justify-content-evenly gap-1">
+                <div class="col-4 d-flex flex-column justify-content-evenly gap-1">
 					<h1>Wkhtmltopdf</h1>
-                    <a href="{{ path('cocina_pdf')}}" class="btn w-25 btn-primary">
+                    <a href="{{ path('cocina_pdf')}}" class="btn w-50 btn-primary">
                         Cocina
                     </a>
-                    <a href="{{ path('diario_pdf')}}" class="btn w-25 btn-outline-primary">
+                    <a href="{{ path('diario_pdf')}}" class="btn w-50 btn-outline-primary">
                         Diario
                     </a>
-                    <a href="{{ path('permiso_pdf')}}" class="btn w-25 btn-primary">
+                    <a href="{{ path('permiso_pdf')}}" class="btn w-50 btn-primary">
                         Permiso
                     </a>
-                    <a href="{{ path('salida_pdf')}}" class="btn w-25 btn-outline-primary">
+                    <a href="{{ path('salida_pdf')}}" class="btn w-50 btn-outline-primary">
                         Salida
                     </a>
-                    <a href="{{ path('autorizacion_pdf')}}" class="btn w-25 btn-primary">
+                    <a href="{{ path('autorizacion_pdf')}}" class="btn w-50 btn-primary">
                         Autorización
                     </a>
-                    <a href="{{ path('amonestacion_pdf')}}" class="btn w-25 btn-outline-primary">
+                    <a href="{{ path('amonestacion_pdf')}}" class="btn w-50 btn-outline-primary">
                         Amonestación
                     </a>
-                    <a href="{{ path('revision_pdf')}}" class="btn w-25 btn-primary">
+                    <a href="{{ path('revision_pdf')}}" class="btn w-50 btn-primary">
                         Revisión
                     </a>
                 </div>
-				<div class="col-6 d-flex flex-column justify-content-evenly gap-1 ">
+				<div class="col-4 d-flex flex-column justify-content-evenly gap-1 ">
 					<h1>DOMPDF</h1>
-                    <a href="{{ path('cocina_dompdf')}}" class="btn w-25 btn-success">
+                    <a href="{{ path('cocina_dompdf')}}" class="btn w-50 btn-success">
                         Cocina
                     </a>
-					<a href="{{ path('diario_dompdf')}}" class="btn w-25 btn-outline-success">
+					<a href="{{ path('diario_dompdf')}}" class="btn w-50 btn-outline-success">
                         Diario
                     </a>
-					<a href="{{ path('app_amonestacion')}}"  class="btn w-25 btn-success">
+					<a href="{{ path('app_amonestacion')}}"  class="btn w-50 btn-success">
 						Amonestación
 					</a>
-					<a href="{{ path('amonestacion_crear')}}"  class="btn w-25 btn-outline-success">
+					<a href="{{ path('amonestacion_crear')}}"  class="btn w-50 btn-outline-success">
 						Crear Amonestación
 					</a>
-
+					<a href="{{ path('app_salida')}}"  class="btn w-50 btn-warning">
+						Salida
+					</a>
+					<a href="{{ path('salida_crear')}}"  class="btn w-50 btn-outline-warning">
+						Crear Salida
+					</a>
+					<a href="{{ path('salidamayor')}}"  class="btn w-50 btn-danger">
+						Salida Mayor Edad
+					</a>
+					<a href="{{ path('salidamayor_crear')}}"  class="btn w-50 btn-outline-danger">
+						Crear Salida
+					</a>
 				</div>
+				 <div class="col-4 d-flex flex-column justify-content-evenly gap-1">
+                    <a href="{{ path('app_permisos')}}" class="btn w-50 btn-primary">
+                        Permisos
+                    </a>
+                    <a href="{{ path('permisos_crear')}}" class="btn w-50 btn-outline-primary">
+                        Crear Permisos
+                    </a>
+                </div>
             </main>
 			{{ include('persona/dompdf/_footer.html.twig') }}
 		</div>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title>{{name}}</title>
+		<link
+		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+		<style>
+			html {
+				margin: 0;
+				padding: 0;
+			}
+            .container {
+                margin: 1em;
+            }
+			main table {
+				position: relative;
+				margin: 0.2em;
+				left: 40px;
+			}
+			.firmado {
+				position: fixed;
+				left: 40%;
+				bottom: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<table width="100%" style="text-align: center; height: 90px;">
+					<tr>
+						<td valign="top" style="width:25%">
+							<img src="img/canteras.jpg" style="height: 5em;"/>
+						</td>
+						<td valign="top" style="text-align: center">
+							<h2>{{title}}</h2>
+						</td>
+						<td valign="center" style="width: 20%">
+							<img style="height: 4.5em" src="img/logo_andalucia.png" class="" alt="">
+						</td>
+					</tr>
+				</table>
+			</header>
+			<main style="margin: 2em;  font-size: 1.1em">
+				<div style="text-indent: 2em;">
+                    <p>D./Dña. {{salidaMayor.nombre}}, mayor de edad con D.N.I. nº <b>{{salidaMayor.Dni}}</b> y alumno/a de la Residencia Escolar "Las Canteras", se ausentará de dicha residencia
+                    por: <u>{{salidaMayor.motivo}}</u> durante el período:</p> 
+                </div>
+                <table width="60%">
+                    <tr>
+                        <td>Del</td>
+                        <td>{{salidaMayor.fechaSalida|date('d/m/y')}}</td>
+                        <td> a las </td>
+                        <td>{{salidaMayor.fechaSalida|date('H:i')}}</td>
+                        <td> horas </td>
+                    </tr>
+                    <tr>
+                        <td>Hasta</td>
+                        <td>{{salidaMayor.fechaLlegada|date('d/m/y')}}</td>
+                        <td> a las </td>
+                        <td>{{salidaMayor.fechaLlegada|date('H:i')}}</td>
+                        <td> horas </td>
+                    </tr>
+                </table>
+                <div>asumiendo la responsabilidad de cuanto le pudiera acontecer en dicha salida</div>
+                <div><p style="text-indent: 1em">Y para que conste, firmo el presente en Puerto Real a {{hoy|date('d \\d\\e F \\d\\e Y')}}
+				<div class="firmado">
+					Fdo. <b>{{salidaMayor.nombre}}</b>
+				</div>
+			</main>
+			<footer style="width: 95%; bottom: 0; position: absolute">
+				<table width="100%" height="30px" style="border-top: 1px solid gray; font-size: 0.8em">
+					<tr>
+						<td>
+							<img style="height:4em" src="img/medidas_personales_1_1.png" class="" alt="">
+						</td>
+
+						<td align="right">
+							<p>INSERTAR SITIO</p>
+							<p>Fecha de Emisión: INSERTAR DATO</p>
+						</td>
+					</tr>
+				</table>
+			</footer>
+		</div>
+	</body>
+</html>
