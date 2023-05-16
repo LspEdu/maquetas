@@ -42,7 +42,7 @@ class HabitacionController extends AbstractController
 
     }
 
-    #[Route('/habitacion/crear', name: 'habitación_crear')]
+    #[Route('/habitacion/crear', name: 'habitacion_crear')]
     public function crear(EntityManagerInterface $em)
     {
         $letras = ['A', 'B', 'C', 'D'];
