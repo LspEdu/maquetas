@@ -6,27 +6,41 @@ use App\Repository\PermisosRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PermisosRepository::class)]
+/**
+ * @ORM\Entity(repositoryClass=PermisosRepository::class)
+ */
 class Permisos
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column
+     */
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(length=255)
+     */
     private ?string $idAlumno = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
     private ?\DateTimeImmutable $fechaInicio = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
     private ?\DateTimeImmutable $fechaFin = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    /**
+     * @ORM\Column(type="text")
+     */
     private ?string $motivo = null;
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(length=255)
+     */
     private ?string $autoriza = null;
 
     public function getId(): ?int

@@ -5,25 +5,39 @@ namespace App\Entity;
 use App\Repository\SalidaRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: SalidaRepository::class)]
+/**
+ * @ORM\Entity(repositoryClass=SalidaRepository::class)
+ */
 class Salida
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column
+     */
     private ?int $id = null;
 
-    #[ORM\Column]
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
     private ?\DateTimeImmutable $fecha_llegada = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
     private ?\DateTimeImmutable $fecha_salida = null;
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(length=255)
+     */
     private ?string $id_Alumno = null;
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(length=255)
+     */
     private ?string $id_Educador = null;
+
 
     public function getId(): ?int
     {

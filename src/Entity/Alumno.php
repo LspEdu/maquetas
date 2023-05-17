@@ -5,38 +5,62 @@ namespace App\Entity;
 use App\Repository\AlumnoRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AlumnoRepository::class)]
+
+/**
+ * @ORM\Entity(repositoryClass=AlumnoRepository::class)
+ * @ORM\Table(name="Alumno")
+ */
 class Alumno
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column
+     */
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+
+    /**
+     * @ORM\Column(length=255)
+     */
     private ?string $nombre = null;
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(length=255)
+     */
     private ?string $apellido1 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $apellido2 = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column
+     */
     private ?int $tlf1 = null;
 
-    #[ORM\Column(nullable: true)]
+    /**
+     * @ORM\Column(nullable=true)
+     */
     private ?int $tlf2 = null;
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(length=255)
+     */
     private ?string $curso = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column
+     */
     private ?int $edad = null;
 
-    #[ORM\ManyToOne(inversedBy: 'alumnos')]
+    /**
+     * @ORM\ManyToOne(inversedBy="alumnos")
+     */
     private ?Habitacion $habitacion = null;
 
+    
     public function getId(): ?int
     {
         return $this->id;

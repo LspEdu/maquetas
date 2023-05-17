@@ -6,29 +6,42 @@ use App\Repository\SalidaMayorEdadRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: SalidaMayorEdadRepository::class)]
+/**
+ * @ORM\Entity(repositoryClass=SalidaMayorEdadRepository::class)
+ */
 class SalidaMayorEdad
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column
+     */
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(length=255)
+     */
     private ?string $nombre = null;
 
-    #[ORM\Column(length: 9)]
+    /**
+     * @ORM\Column(length=9)
+     */
     private ?string $dni = null;
 
-    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    /**
+     * @ORM\Column(type="date_immutable")
+     */
     private ?\DateTimeImmutable $fechaLlegada = null;
 
-    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    /**
+     * @ORM\Column(type="date_immutable")
+     */
     private ?\DateTimeImmutable $fechaSalida = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    /**
+     * @ORM\Column(type="text")
+     */
     private ?string $motivo = null;
-
     public function getId(): ?int
     {
         return $this->id;

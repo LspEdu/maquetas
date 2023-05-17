@@ -7,21 +7,32 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: HabitacionRepository::class)]
+/**
+ * @ORM\Entity(repositoryClass=HabitacionRepository::class)
+ * @ORM\Table(name="Habitacion")
+ */
 class Habitacion
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column
+     */
     private ?int $id = null;
 
-    #[ORM\Column(length: 1)]
+    /**
+     * @ORM\Column(length=1)
+     */
     private ?string $letra = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column
+     */
     private ?int $numeroModulo = null;
 
-    #[ORM\OneToMany(mappedBy: 'habitacion', targetEntity: Alumno::class)]
+    /**
+     * @ORM\OneToMany(mappedBy="habitacion", targetEntity=Alumno::class)
+     */
     private Collection $alumnos;
 
     public function __construct()
