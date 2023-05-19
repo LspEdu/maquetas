@@ -24,6 +24,10 @@ class Habitacion
     #[ORM\OneToMany(mappedBy: 'habitacion', targetEntity: Alumno::class)]
     private Collection $alumnos;
 
+    #[ORM\ManyToOne(inversedBy: 'habitaciones')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Modulo $modulo = null;
+
     public function __construct()
     {
         $this->alumnos = new ArrayCollection();
@@ -84,6 +88,18 @@ class Habitacion
                 $alumno->setHabitacion(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getModulo(): ?Modulo
+    {
+        return $this->modulo;
+    }
+
+    public function setModulo(?Modulo $modulo): self
+    {
+        $this->modulo = $modulo;
 
         return $this;
     }
