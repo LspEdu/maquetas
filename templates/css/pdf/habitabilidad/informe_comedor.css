@@ -1,0 +1,69 @@
+table {
+    width: 100%;
+}
+img#foto-alumno {
+    width: 15px;
+    height: 15px;
+}
+.tablaModulo table,
+th {
+    border-collapse: collapse;
+}
+
+th {
+
+    background: #85991d;
+    color: white;
+    padding: 5px;
+}
+.tablaPlanta {
+    border: none;
+    margin-bottom: 5px;
+}
+td:not(footer td) {
+    border: none;
+    font-size: 0.8em;
+    text-align: left;
+}
+#box-table td {
+    font-size: 0.8em;
+    text-align: left;
+    border-bottom: 1px solid white;
+}
+.fixed {
+    height: 10px;
+}
+div.checkbox {
+    max-width: 8px;
+    min-height: 10px;
+    margin: 2px;
+    border: 1px solid black;
+}
+div.separador {
+    clear: both;
+}
+section#box-habitacion-comedor {
+    width: 90%;
+    height: auto;
+    margin-top: 15px;
+}
+div#box-table {
+    width: 50%;
+    float: left;
+
+}
+.page_break {
+    page-break-before: always;
+}
+i#imagen-default {
+    margin-left: 5px;
+    width: 55px;
+    height: 55px;
+}
+.page_break {
+    page-break-before: always;
+}
+.parrafo-pequenio {
+    font-size: 0.6em !important;
+    text-align: left;
+}

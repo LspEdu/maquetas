@@ -1,0 +1,18 @@
+{% set fecha = fecha ?? null %}
+
+	<table width="100%" style="text-align: center; height: 60px; border-bottom: 1px solid gray" >
+		<tr>
+			<td valign="top" style="width:25%">
+<img src="img/canteras.jpg" style="height: 5em;"/>
+			</td>
+			<td valign="top" style="text-align: center">
+				<h2>Bocadillos</h2>
+                {% if fecha %}
+                    <p>FECHA: </p> <span> INSERTAR DATO </span>
+                {% endif %}
+			</td>
+			<td valign="center" style="width: 25%">
+				<img style="height: 5em" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Logotipo_de_la_Junta_de_Andaluc%C3%ADa_2020.svg/1200px-Logotipo_de_la_Junta_de_Andaluc%C3%ADa_2020.svg.png" class="" alt="">
+			</td>
+		</tr>
+	</table>

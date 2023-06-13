@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		{% include 'pdf/estructura/header.html.twig' %}
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+		<link href="css/pdf/habitabilidad/informe_comedor.css" rel="stylesheet"/>
+	</head>
+	<style>
+		
+	</style>
+
+	<style>
+		.check-box {
+			max-width: 8px;
+			min-height: 10px;
+			margin: 2px;
+			border: 1px solid orange;
+		}
+		#disenio-letra {
+			padding: 3px;
+            background-color :gray;
+            border-radius: 10px;
+			color: white;
+			font-size: 8px;
+			text-align: center;
+		}
+		.texto-bocadillos {
+			font-size: 15px;
+
+		}
+		.parrafo-pequenio {
+			font-size: 0.7em !important;
+		}
+        .tablaModulo {
+            margin-top: 1em;
+        }
+        main {
+            font-size: 10px;
+        }
+	</style>
+	<body>
+
+
+		{%  set cont = 0 %}
+		{% for planta,tPlanta in data %}
+			{%  set cont = cont + 1 %}
+			<main>
+				<div id="content">
+					<header>
+						{% include 'pdf/estructura/cabecera.html.twig' %}
+					</header>
+					{% block contenido %}
+					<section id="box-habitacion-comedor">
+						{% set variable_para_dividir = 0 %}
+						{% set variable_nueva_pagina = 1 %}
+
+						<p class="texto-bocadillos">
+							Bocadillo de la mañana :
+							{{ bocadilloMan }}
+						</p>
+						<p class="texto-bocadillos">
+							Bocadillo de la tarde :
+							{{ bocadilloTar }}
+						</p>
+
+						<!-- Planta -->
+						<table class="tablaPlanta">
+							<tbody>
+								<tr>
+									<td id="borrado-borde-abajo">
+										<i class="badge" id="disenio-planta">
+											{{ planta }}
+										</i>
+									</td>
+								</tr>
+								<tr></tr>
+							</tbody>
+						</table>
+					
+					{% set contador = 1 %}
+					{% set cortar_en = 5 %}
+					{% for modulo,thab in tPlanta %}
+                    {% if loop.index == 5  %}
+                    		<footer
+			style="width:100%; bottom: 1em; position: fixed;">
+			<!-- disenio footer -->
+			{% include 'pdf/estructura/pie.html.twig' %}
+			<!-- evita que se rompa la pagina por el uso de "float" en dompdf -->
+			<div class="separador"></div>
+		</footer>
+                        <div class="page_break"></div>
+                        <header>
+						{% include 'pdf/estructura/cabecera.html.twig' %}
+					</header>
+                    <table class="tablaPlanta">
+							<tbody>
+								<tr>
+									<td id="borrado-borde-abajo">
+										<i class="badge" id="disenio-planta">
+											{{ planta }}
+										</i>
+									</td>
+								</tr>
+								<tr></tr>
+							</tbody>
+						</table>
+                    {% endif %}
+						<div id="box-table" class="tablaModulo">
+							<table class="tablaPlanta">
+								<tbody>
+									<tr>
+										<td id="borrado-borde-abajo">
+											<i class="badge" id="disenio-planta">
+												Módulo:
+												{{ modulo }}
+											</i>
+										</td>
+									</tr>
+									<tr></tr>
+								</tbody>
+							</table>
+							<table>
+								<thead>
+									<tr>
+										<th style="width: 9%;border-left:1px solid white;">Habitacion</th>
+										<th colspan="2" style="max-width: 50% ;">
+											Alumno
+										</th>
+										<th style="width: 10%;">
+											Mañana
+										</th>
+										<th style="width: 10%;">
+											Tarde
+										</th>
+										<th style="width: 10%;">
+											Fruta
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									{% for index, hab in thab  %}
+{# 										{% if contador == cortar_en %}
+											{% else %} #}
+												{% if thab is not empty %}
+													{% for h in hab  %}
+
+														<tr>
+															<td>
+																<i class="badge" id="disenio-letra">
+																	{{ h.habitacion }}
+																</i>
+															</td>
+															{% if h.apartadoAcademico.alumno|length > 25 %}
+																<td colspan="2" class="parrafo-pequenio">
+																	{{ h.apartadoAcademico.alumno ? h.apartadoAcademico.alumno : ''}}
+																</td>
+															{% else %}
+																<td colspan="2">
+																	{{ h.apartadoAcademico.alumno ? h.apartadoAcademico.alumno : ''}}
+																</td>
+															{% endif %}
+															<td>
+																<div class="check-box"></div>
+															</td>
+															<td>
+																<div class="check-box"></div>
+															</td>
+															<td>
+																<div class="check-box"></div>
+															</td>
+														</tr>
+													{% endfor %}
+												{% else %}
+                                                <tr>
+													<td colspan="2">
+														<i class="badge" id="disenio-letra">
+															{{ idx|slice(4,4) }}
+														</i>
+													</td>
+													<td></td>
+													<td>
+														<div class="check-box"></div>
+													</td>
+													<td>
+														<div class="check-box"></div>
+													</td>
+													<td>
+														<div class="check-box"></div>
+													</td>
+												{% endif %}
+											</tr>
+
+		{# 								{% endif %} #}
+									{% endfor %}
+								</tbody>
+								{% set contador = contador + 1 %}
+							</table>
+						</div>
+						{% set variable_para_dividir = variable_para_dividir + 1 %}
+						{% set variable_nueva_pagina = variable_nueva_pagina + 1 %}
+
+						{% if variable_nueva_pagina == 11 %}
+							{% if loop.last %}
+								{% else %}
+									{# <div class="page_break"> </div> #}
+									{% set variable_nueva_pagina = 1 %}
+							{% endif %}
+						{% endif %}
+
+						{% if variable_para_dividir % 2 == 0 %}
+							<div class="separador"></div>
+						{% endif %}
+
+					{% endfor %}
+
+				</section>
+			{% endblock %}
+		</div>
+
+		<footer
+			style="width:100%; bottom: 1em; position: fixed;">
+			<!-- disenio footer -->
+			{% include 'pdf/estructura/pie.html.twig' %}
+			<!-- evita que se rompa la pagina por el uso de "float" en dompdf -->
+			<div class="separador"></div>
+		</footer>
+		{% if data | length != cont %}
+			<div class="page_break"></div>
+		{% endif %}
+        </main>
+{% endfor %}</html></body></html>
